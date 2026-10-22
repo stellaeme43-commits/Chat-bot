@@ -1,211 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Berith Academy Calabar - Best School For Your Child</title>
+<title>CONNECT Chat</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f8fbff;color:#0a1931;line-height:1.7}
-.header{padding:18px 5%;display:flex;justify-content:space-between;background:#fff;border-bottom:4px solid #0047ff;position:sticky;top:0;z-index:99;align-items:center}
-.logo{font-size:30px;font-weight:900;color:#0047ff;letter-spacing:-1px}
-.logo small{display:block;font-size:12px;color:#0a1931;letter-spacing:2px}
-.btn{background:#0047ff;color:#fff;padding:14px 28px;border-radius:100px;text-decoration:none;font-weight:900;border:3px solid #0047ff;display:inline-block}
-.hero{padding:90px 5% 80px;background:linear-gradient(180deg,#fff 0%, #dbeafe 100%)}
-.hero h1{font-size:94px;line-height:0.84;font-weight:900;letter-spacing:-4px;text-transform:uppercase}
-.hero h1 b{color:#0047ff;display:block}
-.hero p{font-size:22px;max-width:820px;margin:20px 0}
-.badge{background:#0a1931;color:#fff;padding:12px 24px;border-radius:100px;font-weight:800;display:inline-block;margin-bottom:20px;font-size:14px;letter-spacing:1px}
-.section{padding:75px 5%}
-.section h2{font-size:66px;line-height:0.9;font-weight:900;letter-spacing:-3px;margin-bottom:20px}
-.section h2 span{color:#0047ff}
-.section h3{font-size:28px;font-weight:900;margin:20px 0 10px;color:#0047ff}
-.card{border:4px solid #0047ff;border-radius:32px;padding:34px;background:#fff;box-shadow:14px 14px 0 #0047ff;margin:20px 0}
-.list{font-size:19px;margin:12px 0 12px 22px}
-.list li{margin:10px 0}
-.price{font-size:60px;font-weight:900;line-height:1}
-.fees{background:#0a1931;color:#fff;margin:30px 3%;border-radius:50px;padding:70px 5%}
-.feeBox{background:#fff;color:#0a1931;border-radius:28px;padding:36px;margin:16px 0;border:4px solid #0047ff}
-.feeBox.blue{background:#0047ff;color:#fff}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
-.payPlan{background:#fef9c3;border:3px dashed #eab308;border-radius:20px;padding:20px;margin-top:14px;color:#0a1931}
-.timeline{border-left:5px solid #0047ff;padding-left:24px;margin:20px 0}
-.timeline div{margin:18px 0}
-.faq{border:3px solid #0047ff;border-radius:20px;padding:20px;margin:12px 0;background:#fff}
-#ai{position:fixed;bottom:20px;right:20px;z-index:999}
-#aiBtn{width:68px;height:68px;border-radius:50%;background:#0047ff;color:#fff;font-size:32px;border:4px solid #0a1931;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.3)}
-#aiBox{position:absolute;bottom:78px;right:0;width:330px;height:460px;background:#fff;border:4px solid #0a1931;border-radius:24px;display:none;flex-direction:column;overflow:hidden;box-shadow:16px 16px 0 #0a1931}
-#aiBox.open{display:flex}
-.aiTop{background:#0a1931;color:#fff;padding:14px;font-weight:900;display:flex;justify-content:space-between;align-items:center}
-.msgs{flex:1;padding:14px;overflow:auto;background:#f0f7ff}
-.m{padding:12px 16px;border-radius:18px;margin:10px 0;max-width:85%;border:3px solid #0a1931;font-size:14px;line-height:1.4}
-.bot{background:#ffcc00;align-self:flex-start}
-.user{background:#0047ff;color:#fff;align-self:flex-end;margin-left:auto}
-.aiIn{display:flex;padding:10px;border-top:4px solid #0a1931;background:#fff}
-.aiIn input{flex:1;border:3px solid #0a1931;border-radius:100px;padding:12px 16px;font-size:14px}
-.aiIn button{margin-left:8px;background:#0047ff;color:#fff;border:3px solid #0a1931;border-radius:100px;padding:12px 18px;font-weight:900}
-@media(max-width:750px){.hero h1{font-size:56px}.section h2{font-size:40px}.two,.three{grid-template-columns:1fr}#aiBox{width:300px;height:400px}}
+*{box-sizing:border-box}
+body{
+  margin:0;background:#10121c;color:white;
+  font-family:Arial,sans-serif
+}
+header{
+  padding:18px;background:#191c2b;
+  color:#a78bfa;font-size:25px;font-weight:bold
+}
+main{max-width:600px;margin:auto;padding:15px}
+.card{
+  background:#1c2030;padding:18px;
+  border-radius:16px;margin-bottom:15px
+}
+input,button{
+  width:100%;padding:13px;margin:6px 0;
+  border-radius:10px;border:none;font-size:15px
+}
+input{background:#10121c;color:white;border:1px solid #383c50}
+button{background:#8b5cf6;color:white;font-weight:bold}
+button:disabled{opacity:.5}
+.small{font-size:12px;color:#aab0c5}
+#app,#chatScreen{display:none}
+#status{font-size:13px;color:#c4b5fd}
+#users{margin-top:12px}
+.user{
+  padding:13px;background:#272b3e;
+  border-radius:10px;margin-top:8px
+}
+.user button{width:auto;float:right;padding:8px}
+#messages{
+  height:300px;overflow-y:auto;
+  background:#10121c;padding:10px;border-radius:10px
+}
+.msg{
+  background:#343951;padding:10px;
+  margin:8px 0;border-radius:10px;
+  overflow-wrap:anywhere
+}
+.mine{background:#6845b7;text-align:right}
+.row{display:flex;gap:6px}
+.row input{flex:1;min-width:0}
+.row button{width:90px}
+.hidden{display:none!important}
 </style>
 </head>
+
 <body>
-<div class="header">
-<div class="logo">BERITH ACADEMY.<small>CALABAR • SINCE 2018</small></div>
-<a class="btn" href="https://wa.me/2349157664579?text=Hello%20Berith%20Academy%20Calabar%20I%20want%20to%20bring%20my%20child">Enroll My Child</a>
-</div>
+<header>CONNECT 💬</header>
 
-<div class="hero">
-<div class="badge">📍 CALABAR, CROSS RIVER STATE • FOR PARENTS WHO WANT THE BEST • PAY SMALL SMALL AVAILABLE</div>
-<h1>GIVE YOUR <b>CHILD THE BEST EDUCATION IN CALABAR</b></h1>
-<p><b>Dear Caring Parent in Calabar,</b><br><br>You wake up early, you work hard, you hustle - all for your children. You want a school in Calabar that will truly TEACH your child, not just collect fees. A school where teachers know your child's name, where your child is safe, disciplined, and learning real things that will help them pass WAEC, NECO and succeed in life.<br><br>Welcome to <b>Berith Academy, Calabar</b> - From Nursery to SS3, we teach with love, excellence, strong morals, and proven results. And yes - <b>you can pay small small.</b></p>
-<a class="btn" href="#why">Why Parents Choose Berith</a>
-<a class="btn" style="background:#fff;color:#0047ff;margin-left:10px" href="#pay">See Pay Small Small Plan</a>
-</div>
+<main>
+  <div class="card">
+    <div id="status">Connect with people, wherever they are.</div>
+  </div>
 
-<div class="section" id="why" style="background:#fff">
-<h2>WHY PARENTS IN CALABAR <span>BRING THEIR CHILDREN TO BERITH</span></h2>
-<div class="three">
-<div class="card"><h3>👨‍👩‍👧‍👦 Small Class, Big Attention</h3><p>Max 20 pupils per class in Nursery/Primary, Max 25 in Secondary. Your child is not lost in crowd. Teacher knows if your child didn't eat, if they are sad, if they need extra help in Maths. We call parents for updates - not only when fees remain.</p></div>
-<div class="card"><h3>🛡️ Safe, Disciplined, Moral</h3><p>Fenced, gated, with security personnel. No bullying allowed. We teach respect for elders, honesty, cleanliness, hard work, fear of God. Your child learns to greet, to say thank you, to keep their environment clean.</p></div>
-<div class="card" style="background:#e0f2fe"><h3>📚 Real Teaching, Not Cramming</h3><p>We teach phonics in Nursery so they read early. We do practicals in lab for SS1-SS3 Science. We use past WAEC/NECO questions from JSS3 to build confidence. Results follow naturally.</p></div>
-</div>
-<div class="card" style="background:#f0fdf4;border-color:#16a34a;box-shadow:14px 14px 0 #16a34a;margin-top:30px">
-<h3 style="color:#16a34a;font-size:32px">💬 What Calabar Parents Say:</h3>
-<p><i>"My daughter was in Primary 4 in another school, she could not read well. After 2 terms in Berith Calabar, she now reads her Bible in church. And I pay N15k every 2 weeks, they allow me." - Mrs. Glory Ekpo, 8 Miles, Calabar</i></p>
-<p style="margin-top:10px"><i>"I like say I fit pay small small. As trader for Watt Market, N60k at once na heavy, but N5k weekly I fit manage. My pikin dey school while I dey pay." - Mama Uduak, Watt Market</i></p>
-</div>
-</div>
+  <section id="auth" class="card">
+    <h2>Welcome to CONNECT</h2>
+    <p class="small">Create an account or log in.</p>
 
-<div class="section" style="background:#f0f7ff">
-<h2>DETAILED CURRICULUM - <span>WHAT WE TEACH YOUR CHILD</span></h2>
-<div class="card">
-<h3>👶 NURSERY (Ages 3-5)</h3>
-<div class="two">
-<div><ul class="list"><li>English (Phonics, Reading, Writing)</li><li>Mathematics, Basic Science, Social Norms, Creative Arts, Computer, CRS</li></ul></div>
-<div><ul class="list"><li>Montessori + Phonics method</li><li>Writing: Tracing, then free writing</li><li>Reading: 3-letter words in Nursery 2</li><li>8am-1pm for small children</li></ul></div>
-</div>
-</div>
-<div class="card">
-<h3>📚 PRIMARY (Primary 1-6, Ages 6-11)</h3>
-<div class="two">
-<div><ul class="list"><li>English, Mathematics, Basic Science & Technology, Social Studies, Verbal & Quantitative Reasoning, CRS, Computer, French</li></ul></div>
-<div><ul class="list"><li>Daily dictation & mental maths</li><li>Weekly spelling bee & quiz</li><li>Common Entrance from Primary 5</li><li>Max 20 pupils - Teacher marks all books daily</li></ul></div>
-</div>
-</div>
-<div class="two">
-<div class="card"><h3>📖 JSS1-JSS3</h3><ul class="list"><li>14 subjects, CA every 2 weeks, BECE intensive from JSS2, Career guidance</li></ul></div>
-<div class="card"><h3>🎓 SS1-SS3 - WAEC/NECO</h3><ul class="list"><li>Science, Art, Commercial + Core (English, Maths, Civic, Computer)</li><li>WAEC & NECO practicals, Past questions from SS1</li></ul></div>
-</div>
-</div>
+    <input id="email" type="email"
+      placeholder="Email address" autocomplete="email">
 
-<div class="section" style="background:#fff">
-<h2>A DAY IN <span>BERITH ACADEMY CALABAR</span></h2>
-<div class="card">
-<div class="timeline">
-<div><b>7:45am - 8:00am: Arrival & Assembly</b><br>Morning devotion, anthem, neatness check.</div>
-<div><b>8:00am - 10:00am: Core Subjects</b><br>English and Mathematics when brain fresh.</div>
-<div><b>10:00am - 10:30am: Break / Snack</b><br>Play under supervision.</div>
-<div><b>10:30am - 12:30pm: Other Subjects</b><br>Basic Science, Social Studies, etc. Practicals in lab.</div>
-<div><b>12:30pm - 1:00pm: Lunch Break</b><br>Lunch, rest, library reading.</div>
-<div><b>1:00pm - 2:00pm: Computer, Revision, Homework</b><br>We explain homework so child can do at home without stress.</div>
-<div><b>2:00pm: Closing</b><br>No extra lesson needed - we taught well during school hours.</div>
-</div>
-</div>
-</div>
+    <input id="password" type="password"
+      placeholder="Password (at least 6 characters)"
+      autocomplete="current-password">
 
-<div class="fees" id="pay">
-<h2>FEES & <span style="color:#60a5fa">PAY SMALL SMALL PLAN</span></h2>
-<p style="color:#93c5fd;font-size:21px">We understand - N60k at once can be heavy. At Berith Calabar, you can pay small small and child still learns.</p>
-<div style="margin-top:35px">
-<div class="feeBox blue">
-<h3>NEW STUDENTS - NURSERY TO SS3 - PER TERM</h3><div class="price">₦60,000</div>
-<p><b>What N60k Covers:</b> Tuition N40k + Books N10k + Uniform N5k + ID/Activities N5k</p>
-<div class="payPlan">
-<h4 style="font-size:22px">💳 PAY SMALL SMALL - CHOOSE YOUR PLAN:</h4>
-<ul style="margin:12px 0 0 20px;font-size:18px">
-<li><b>Plan A - 3 Times:</b> N20,000 on admission (child starts!) + N20,000 after 1 month + N20,000 after 2 months = N60k</li>
-<li><b>Plan B - 4 Times:</b> N15,000 every 2 weeks x 4 = N60k</li>
-<li><b>Plan C - Weekly (For Traders):</b> N5,000 weekly for 12 weeks. Child starts after first N5k!</li>
-<li><b>Plan D - Custom:</b> Tell us your situation on WhatsApp 09157664579. We will create plan for you.</li>
-</ul>
-<p style="margin-top:14px;font-weight:900;background:#0a1931;color:#fff;padding:12px;border-radius:12px">✅ YOUR CHILD STARTS IMMEDIATELY AFTER FIRST PAYMENT</p>
-</div>
-<br><a class="btn" style="background:#fff;color:#0047ff" href="https://wa.me/2349157664579?text=I%20want%20New%20Admission%20N60k%20Pay%20Small%20Small%20Berith%20Calabar">I Want N60k - Pay Small Small - Chat WhatsApp</a>
-</div>
-<div class="feeBox">
-<h3>RETURNING STUDENTS</h3><div class="price">₦26,500</div>
-<p>Loyalty price for Berith family</p>
-<div class="payPlan"><h4>💳 Pay Small Small:</h4><ul style="margin:10px 0 0 20px"><li>2 Times: N13,250 + N13,250 = N26,500</li><li>Weekly: N6,625 x 4 weeks</li></ul></div><br><a class="btn" href="https://wa.me/2349157664579?text=Returning%20N26.5k%20Berith%20Calabar">Pay N26.5k - Returning</a>
-</div>
-</div>
-<div style="margin-top:30px;background:#1e3a8a;padding:24px;border-radius:24px">
-<h3>🤝 Our Promise:</h3>
-<p style="margin-top:10px;font-size:18px">We will NEVER embarrass your child because fees remain. If you are paying as agreed in pay small small plan, your child stays in class, writes exams, and is treated with love. Just communicate with us on WhatsApp 09157664579. No shame.</p>
-</div>
-</div>
+    <button id="signup">Create account</button>
+    <button id="login">Log in</button>
 
-<div class="section">
-<h2>HOW TO <span>BRING YOUR CHILD TODAY</span></h2>
-<div class="two">
-<div class="card"><h3>Step-by-Step:</h3><ol class="list" style="font-size:20px"><li>Chat us on WhatsApp 09157664579 - Tell us child's class and pay plan you want</li><li>Visit school in Calabar with your child 8am-3pm</li><li>Small assessment (15 mins) - Not to fail, just to place well</li><li>Make first payment N15k/N20k/N5k - Get books & uniform same day</li><li>Child starts next morning! Complete balance small small</li></ol></div>
-<div class="card" style="background:#e0f2fe"><h3>📍 Visit Us</h3><p style="font-size:20px;font-weight:800">Berith Academy<br>Calabar Municipality<br>Cross River State<br>(Exact street sent on WhatsApp)</p><p style="margin-top:15px"><b>Contact:</b><br>📱 WhatsApp/Call: 09157664579<br>📍 Calabar, Cross River</p><a class="btn" href="https://wa.me/2349157664579" style="margin-top:15px">Chat on WhatsApp - 09157664579</a></div>
-</div>
+    <p id="authStatus" class="small"></p>
+  </section>
 
-<h3 style="margin-top:40px">❓ FAQ:</h3>
-<div class="faq"><b>Q: Can child start after paying only N15k or N5k?</b><br>A: Yes! 100%. After first payment, child gets books & uniform and starts next day.</div>
-<div class="faq"><b>Q: Will you send child home if fees remain?</b><br>A: No - if you are paying as agreed. Only if you stop paying and stop communicating we call you. We don't embarrass children.</div>
-<div class="faq"><b>Q: How do I chat on WhatsApp?</b><br>A: Click any blue "Chat on WhatsApp" button - e go open WhatsApp direct to 09157664579 with message ready. Or save 09157664579 and chat us. Or chat Berith AI here (bottom right 🤖).</div>
-</div>
+  <section id="app">
+    <div class="card">
+      <h2>Your contacts</h2>
+      <p class="small">
+        Search by email address to find another registered user.
+      </p>
+      <input id="search" type="email"
+        placeholder="Friend's email address">
+      <button id="find">Find friend</button>
+      <div id="users"></div>
+      <button id="logout">Log out</button>
+    </div>
+  </section>
 
-<div style="background:#0a1931;color:#fff;padding:70px 5%;text-align:center">
-<h2 style="font-size:48px;line-height:0.9">BERITH ACADEMY, CALABAR<br><span style="color:#60a5fa">BRING YOUR CHILD TODAY</span></h2>
-<p style="color:#93c5fd;margin-top:16px">For parents who want best - Nursery to SS3, WAEC & NECO Excellence, Pay Small Small<br>WhatsApp: 09157664579 | China White & Blue | Pay Small Small Available</p>
-<br><a class="btn" href="https://wa.me/2349157664579?text=Hello%20Berith%20Academy%20Calabar%20I%20want%20to%20bring%20my%20child%20and%20pay%20small%20small" style="font-size:24px;padding:22px 48px;background:#fff;color:#0047ff">👨‍👩‍👧‍👦 BRING MY CHILD - CHAT NOW ON WHATSAPP 09157664579</a>
-</div>
+  <section id="chatScreen" class="card">
+    <button id="back">← Back to contacts</button>
+    <h3 id="chatTitle">Private chat</h3>
+    <div id="messages"></div>
+    <div class="row">
+      <input id="messageInput" placeholder="Write a message...">
+      <button id="send">Send</button>
+    </div>
+    <p class="small" id="chatStatus"></p>
+  </section>
+</main>
 
-<div id="ai">
-<div id="aiBox">
-<div class="aiTop"><span>🤖 BERITH AI - CALABAR</span><span id="closeAi" style="cursor:pointer;background:#fff;color:#0a1931;padding:4px 10px;border-radius:100px">X</span></div>
-<div class="msgs" id="msgs">
-<div class="m bot">Hi parent! 👋 I be Berith AI for Calabar 🤖<br><br>Ask me anything:<br>• Fees? New N60k, Old N26.5k<br>• Pay Small Small? Yes! N5k weekly<br>• WhatsApp? 09157664579 - Click Chat button!<br><br>How I fit help?</div>
-</div>
-<div class="aiIn"><input id="q" placeholder="Ask: fees, pay small, WhatsApp..."><button id="send">Ask</button></div>
-</div>
-<button id="aiBtn">🤖</button>
-</div>
+<script type="module">
+import { createClient } from
+'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-<script>
-const kb={
-fees:"NEW: N60,000 per term (Tuition N40k + Books N10k + Uniform N5k + ID/Activities N5k). OLD: N26,500 per term. You can pay small small! WhatsApp 09157664579",
-pay:"Yes! Pay Small Small dey! N60k: N20k x 3, N15k x 4 every 2 weeks, or N5k weekly x 12. Child starts after FIRST payment! N26.5k: N13,250 x 2 or N6,625 weekly. Chat 09157664579 to arrange.",
-location:"Berith Academy dey for Calabar Municipality, Cross River State. Exact street we go send for WhatsApp when you chat 09157664579. Open Mon-Fri 8am-3pm.",
-programs:"We teach Nursery 1-2, Primary 1-6, JSS1-JSS3, SS1-SS3. WAEC & NECO focus from SS1. Max 20-25 pupils per class. Lab, Library, Computer.",
-whatsapp:"HOW TO CHAT ON WHATSAPP: Click any blue 'Chat on WhatsApp' button - e go open WhatsApp direct to 09157664579 with message ready, just press SEND! Or save 09157664579 and chat us. Or chat me (Berith AI) here!",
-contact:"WhatsApp/Call: 09157664579, Calabar, Cross River State."
-};
-const msgs=document.getElementById('msgs'),q=document.getElementById('q');
-document.getElementById('aiBtn').onclick=()=>document.getElementById('aiBox').classList.toggle('open');
-document.getElementById('closeAi').onclick=()=>document.getElementById('aiBox').classList.remove('open');
-function addMsg(text,cls){let d=document.createElement('div');d.className='m '+cls;d.innerHTML=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight+200;}
-function reply(t){
-let s=t.toLowerCase(),a="";
-if(s.includes('fee')||s.includes('60')||s.includes('26')||s.includes('price'))a=kb.fees;
-else if(s.includes('pay')||s.includes('small')||s.includes('weekly'))a=kb.pay;
-else if(s.includes('where')||s.includes('location')||s.includes('address'))a=kb.location;
-else if(s.includes('teach')||s.includes('program')||s.includes('nursery')||s.includes('waec'))a=kb.programs;
-else if(s.includes('whatsapp')||s.includes('chat')||s.includes('0915'))a=kb.whatsapp;
-else if(s.includes('contact')||s.includes('number'))a=kb.contact;
-else a="I be Berith AI! 🤖 Ask me: Fees, Pay Small Small, Location, Programs, WhatsApp 09157664579";
-addMsg(a,'bot');
+/*
+ SETUP REQUIRED:
+ 1. Create a project at https://supabase.com
+ 2. Open Project Settings -> API.
+ 3. Paste your Project URL and publishable key below.
+ NEVER put a secret/service-role key in this file.
+*/
+const SUPABASE_URL = 'PASTE_YOUR_SUPABASE_PROJECT_URL';
+const SUPABASE_KEY = 'PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY';
+
+const configured =
+  SUPABASE_URL.startsWith('https://') &&
+  !SUPABASE_URL.includes('PASTE_') &&
+  !SUPABASE_KEY.includes('PASTE_');
+
+const status = document.getElementById('status');
+const authStatus = document.getElementById('authStatus');
+
+if (!configured) {
+  status.textContent =
+    'Setup needed: connect your Supabase project to activate chat.';
+} else {
+  startApp();
 }
-function send(){
-let t=q.value.trim();if(!t)return;
-addMsg(t,'user');
-q.value='';
-setTimeout(()=>reply(t),400);
+
+async function startApp() {
+  const { createClient } = await import(
+    'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+  );
+  const db = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  let me = null;
+  let friend = null;
+  let channel = null;
+  let poll = null;
+
+  const $ = id => document.getElementById(id);
+
+  $('signup').onclick = async () => {
+    const { error } = await db.auth.signUp({
+      email: $('email').value.trim(),
+      password: $('password').value
+    });
+    authStatus.textContent = error
+      ? error.message
+      : 'Account request sent. Check your email if confirmation is required.';
+  };
+
+  $('login').onclick = async () => {
+    const { data, error } = await db.auth.signInWithPassword({
+      email: $('email').value.trim(),
+      password: $('password').value
+    });
+    if (error) authStatus.textContent = error.message;
+    else await showApp(data.user);
+  };
+
+  $('logout').onclick = async () => {
+    stopChat();
+    await db.auth.signOut();
+    me = null;
+    $('app').style.display = 'none';
+    $('chatScreen').style.display = 'none';
+    $('auth').style.display = 'block';
+    status.textContent = 'You are logged out.';
+  };
+
+  async function showApp(user) {
+    me = user;
+    $('auth').style.display = 'none';
+    $('app').style.display = 'block';
+    $('chatScreen').style.display = 'none';
+    status.textContent = 'Logged in as ' + user.email;
+  }
+
+  $('find').onclick = async () => {
+    const email = $('search').value.trim().toLowerCase();
+    if (!email || email === me.email.toLowerCase()) {
+      $('users').textContent = 'Enter another user’s email address.';
+      return;
+    }
+    $('users').textContent =
+      'User discovery needs a secure public profiles table. We will add this in the database setup.';
+  };
+
+  $('back').onclick = () => {
+    stopChat();
+    $('chatScreen').style.display = 'none';
+    $('app').style.display = 'block';
+  };
+
+  function stopChat() {
+    if (channel) db.removeChannel(channel);
+    channel = null;
+    if (poll) clearInterval(poll);
+    poll = null;
+    friend = null;
+  }
+
+  function addMessage(message) {
+    const item = document.createElement('div');
+    item.className = 'msg' +
+      (message.sender_id === me.id ? ' mine' : '');
+    item.textContent = message.body;
+    $('messages').appendChild(item);
+    $('messages').scrollTop = $('messages').scrollHeight;
+  }
+
+  async function loadMessages() {
+    if (!friend) return;
+    const { data, error } = await db
+      .from('messages')
+      .select('id,sender_id,body,created_at')
+      .or(
+        `and(sender_id.eq.${me.id},recipient_id.eq.${friend.id}),` +
+        `and(sender_id.eq.${friend.id},recipient_id.eq.${me.id})`
+      )
+      .order('created_at')
+      .limit(100);
+
+    if (error) {
+      $('chatStatus').textContent =
+        'Database setup required: ' + error.message;
+      return;
+    }
+    $('messages').replaceChildren();
+    data.forEach(addMessage);
+  }
+
+  async function openChat(user) {
+    stopChat();
+    friend = user;
+    $('app').style.display = 'none';
+    $('chatScreen').style.display = 'block';
+    $('chatTitle').textContent = 'Chat with ' + user.email;
+    $('messages').replaceChildren();
+    await loadMessages();
+
+    channel = db.channel('messages-' + me.id)
+      .on('postgres_changes', {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'messages'
+      }, payload => {
+        const m = payload.new;
+        if (
+          (m.sender_id === me.id && m.recipient_id === friend?.id) ||
+          (m.sender_id === friend?.id && m.recipient_id === me.id)
+        ) loadMessages();
+      }).subscribe();
+  }
+
+  $('send').onclick = async () => {
+    const body = $('messageInput').value.trim();
+    if (!body || !friend) return;
+
+    $('send').disabled = true;
+    const { error } = await db.from('messages').insert({
+      sender_id: me.id,
+      recipient_id: friend.id,
+      body
+    });
+    $('send').disabled = false;
+
+    if (error) $('chatStatus').textContent = error.message;
+    else {
+      $('messageInput').value = '';
+      await loadMessages();
+    }
+  };
+
+  const { data } = await db.auth.getSession();
+  if (data.session) await showApp(data.session.user);
+
+  db.auth.onAuthStateChange((_event, session) => {
+    if (session) showApp(session.user);
+  });
 }
-document.getElementById('send').onclick=send;
-q.addEventListener('keydown',e=>{if(e.key==='Enter')send()});
 </script>
 </body>
 </html>
